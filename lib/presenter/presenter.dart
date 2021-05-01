@@ -1,10 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_mvp_architecture/view/view.dart';
 import 'package:flutter_mvp_architecture/model/model.dart';
 
 class AppPresenter {
   set view(AppView value) {}
   void buttonClick1() {}
+  void buttonClickAdd() {}
+  void buttonClickMinus() {}
+  void buttonClickDivision() {}
 }
 
 class BasicAppPresenter implements AppPresenter {
@@ -26,6 +28,30 @@ class BasicAppPresenter implements AppPresenter {
     int v1 = int.parse(this._model.controller1.text);
     int v2 = int.parse(this._model.controller2.text);
     this._model.result = v1 * v2;
+    this._view.refreshData(this._model);
+  }
+
+  @override
+  void buttonClickAdd() {
+    int v1 = int.parse(this._model.controller1.text);
+    int v2 = int.parse(this._model.controller2.text);
+    this._model.result = v1 + v2;
+    this._view.refreshData(this._model);
+  }
+
+  @override
+  void buttonClickDivision() {
+    int v1 = int.parse(this._model.controller1.text);
+    int v2 = int.parse(this._model.controller2.text);
+    this._model.result = v1 % v2;
+    this._view.refreshData(this._model);
+  }
+
+  @override
+  void buttonClickMinus() {
+    int v1 = int.parse(this._model.controller1.text);
+    int v2 = int.parse(this._model.controller2.text);
+    this._model.result = v1 - v2;
     this._view.refreshData(this._model);
   }
 }

@@ -30,11 +30,34 @@ class _HomePageState extends State<HomePage> implements AppView {
           TextField(
             controller: _appModel.controller2,
           ),
-          ElevatedButton(
-            onPressed: () {
-              this.widget.presenter.buttonClick1();
-            },
-            child: Icon(Icons.close),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  this.widget.presenter.buttonClick1();
+                },
+                child: Icon(Icons.close),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  this.widget.presenter.buttonClickAdd();
+                },
+                child: Icon(Icons.add),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  this.widget.presenter.buttonClickMinus();
+                },
+                child: Icon(Icons.remove),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  this.widget.presenter.buttonClickDivision();
+                },
+                child: Icon(Icons.emoji_symbols),
+              ),
+            ],
           ),
           Text(
             "Result: ${_appModel.result}",
